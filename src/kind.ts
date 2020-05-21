@@ -76,7 +76,7 @@ export async function downloadKind(version: string): Promise<string> {
     console.log("downloading kind from " + url);
     let downloadPath: string | null = null;
     downloadPath = await tc.downloadTool(url);
-    core.debug(`kind is downloaded to ${downloadPath}`);
+    core.debug(`kind is downloaded to ${downloadPath}`); // show downloadPath
     await exec.exec("chmod", ["+x", downloadPath]);
     let toolPath: string = await tc.cacheFile(downloadPath, "kind", toolName, version);
     core.debug(`kind is cached under ${toolPath}`);
